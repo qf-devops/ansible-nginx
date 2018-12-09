@@ -1,0 +1,16 @@
+---
+- name: install {{ pkgname }} server package
+  apt:
+    name: "{{ pkgname }}"
+    state: latest
+      
+- name: install {{ pkgname }} server package
+  copy:
+    src: index.html
+    dest: /tmp/index.html  
+  notify: restart {{ pkgname }} service   
+     
+- name: start "{{ pkgname }}" service
+  service:
+    name: "{{ pkgname }}"
+    state: started    
