@@ -1,0 +1,19 @@
+---
+- hosts: remote
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+    - name : copy the index.html file  
+      copy:
+        src: index.html
+        dest:  /var/www/html/index.nginx-debian.html
+      notify: restart nginx  
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
