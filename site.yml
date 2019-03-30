@@ -1,4 +1,5 @@
 ---
 - hosts: remote
+  serial: 2
   roles:
   - nginx
