@@ -1,3 +1,6 @@
+
+git clone https://github.com/qf-devops/ansible-nginx.git
+
 ssh-keygen
 id_rsa
 id_rsa.pub
